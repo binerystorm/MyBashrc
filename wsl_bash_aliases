@@ -1,0 +1,9 @@
+#!/bin/bash
+
+alias wpy3='python.exe'
+alias mypy='mypy.exe'
+alias ipython='ipython.exe'
+
+
+# windows home
+export WH="/mnt/c/Users/geric"

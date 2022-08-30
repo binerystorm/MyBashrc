@@ -1,0 +1,61 @@
+#! bin/sh
+source ~/scripts/bash_utils
+
+function main_prompt {
+    # exit colorcode logic
+    local exit_code="$?"
+    local exit_code_color=$red
+    [ $exit_code -eq 0 ] && exit_code_color=$green
+
+    #setting var
+    local git_branch="$(_get_git_branch)"
+
+    # make basic prompt
+    PS1="$green"
+    PS1+="┌─["
+    PS1+="$yellow"
+    PS1+="\u@\h \$"
+    PS1+="$green"
+    PS1+="]->["
+    PS1+="$blue"
+    PS1+="\w"
+    PS1+="$([ -z $git_branch ] || echo "$green : $cyan$git_branch")"
+    PS1+="$green"
+    PS1+="]\n└("
+    PS1+="$exit_code_color"
+    PS1+="$exit_code"
+    PS1+="$green"
+    PS1+=")> "
+    PS1+="$white"
+}
+
+function simple_prompt {
+    local exit_code=$?
+    local exit_code_color=$red
+    [ $exit_code -eq 0 ] && exit_code_color=$green
+
+    PS1="$green"
+    PS1+="["
+    PS1+="$blue"
+    PS1+="\W"
+    PS1+="$green"
+    PS1+="]("
+    PS1+="$exit_code_color"
+    PS1+="$exit_code"
+    PS1+="$green"
+    PS1+=")"
+    PS1+="$yellow"
+    PS1+="\$"
+    PS1+="$green> "
+    PS1+="$white"
+}
+
+function bare_prompt {
+    exit_code=$?
+    local exit_code_color=$red
+    [ $exit_code -eq 0 ] && exit_code_color=$green
+
+    PS1="$exit_code_color"
+    PS1+="> "
+    PS1+="$white"
+}

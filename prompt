@@ -1,5 +1,5 @@
 #! bin/sh
-source ~/scripts/bash_utils
+source ~/.config/bash/.bash_utils
 
 function main_prompt {
     # exit colorcode logic

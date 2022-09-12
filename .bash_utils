@@ -1,0 +1,15 @@
+#!/bin/sh
+
+#colors
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+yellow=$(tput setaf 3)
+blue=$(tput setaf 4)
+cyan=$(tput setaf 6)
+white=$(tput setaf 7)
+
+function _get_git_branch {
+    local branch="$(git branch 2>&1 | grep \* | awk '{print $2}')"
+    [ -z $branch ] || echo "$branch"
+}
+

@@ -4,7 +4,8 @@
 
 # imports
 
-source ~/.config/bash/prompt
+[ -f $HOME/.config/bash/prompt ] && source $HOME/.config/bash/prompt
+[ -f $HOME/.config/bash/bash_aliases ] && source $HOME/.config/bash/bash_aliases
 
 # If not running interactively, don't do anything
 case $- in
@@ -37,6 +38,8 @@ HISTFILESIZE=2000
 
 # set file history location
 HISTFILE="$HOME/.config/bash/.bash_history"
+
+PATH+=":/$HOME/scripts/"
 
 
 # Set up PS1

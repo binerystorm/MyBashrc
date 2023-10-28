@@ -39,7 +39,7 @@ HISTFILESIZE=2000
 # set file history location
 HISTFILE="$HOME/.config/bash/.bash_history"
 
-PATH+=":/$HOME/scripts/"
+PATH+=":$HOME/scripts/"
 
 
 # Set up PS1

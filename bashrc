@@ -46,8 +46,8 @@ PATH+=":$HOME/scripts/"
 # ==========
 
 function sep {
-    local p=${1:-main_prompt}
-    PROMPT_COMMAND=$p
+    local p=${1:-main}
+    PROMPT_COMMAND="$p"_prompt
 }
 
 sep
